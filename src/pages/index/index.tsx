@@ -68,7 +68,7 @@ class Index extends Component {
 
         }}>async</Button>
         <Button onClick={() => {
-          RN?.NativeModules?.RNNative?.routeHandlerUrl('zeroeconsumer://user/me')
+          RN?.NativeModules?.RNNative?.routeHandlerUrl('appscheme://user/me')
         }}>哈哈哈</Button>
         <View><Text>{this.props.num}</Text></View>
         <View><Text>Hello, World</Text></View>
