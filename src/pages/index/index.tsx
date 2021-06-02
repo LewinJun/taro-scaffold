@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Button, Text } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 
 var RN = null
 if (process.env.TARO_ENV === 'rn') {
@@ -65,8 +66,8 @@ class Index extends Component {
           dispatch({ type: 'counter/dec', payload: 1 })
         }}>-</Button>
         <Button className='dec_btn' onClick={() => {
-
-        }}>async</Button>
+          Taro.navigateTo({ url: '/pages/test/index' })
+        }}>跳转到testPage</Button>
         <Button onClick={() => {
           RN?.NativeModules?.RNNative?.routeHandlerUrl('appscheme://user/me')
         }}>哈哈哈</Button>

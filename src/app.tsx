@@ -1,8 +1,5 @@
 import { Component } from 'react'
 import { Provider } from 'react-redux'
-
-import configStore from './store'
-
 import './app.less'
 import { reduxHelper } from './redux/redux'
 import createStore from './redux/redux-dva'
