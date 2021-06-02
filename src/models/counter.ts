@@ -8,7 +8,6 @@ export interface CounterModelType {
     namespace: "counter";
     state: ICounterState;
     effects: {
-
         add: Reducer<ICounterState>;
         dec: Reducer<ICounterState>;
     },

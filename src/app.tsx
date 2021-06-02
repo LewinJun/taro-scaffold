@@ -9,13 +9,12 @@ import createStore from './redux/redux-dva'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistHelper } from './redux/redux-persist'
 import persistStore from 'redux-persist/es/persistStore'
+import { afterRehydrated, beforeRunApp } from './redux/redux-lifecycle'
 
 // const store = configStore()
 
 const store = reduxHelper(createStore())
-const persistor = persistHelper(persistStore(store, null, () => {
-
-}))
+const persistor = persistHelper(persistStore(store, null, afterRehydrated))
 
 class App extends Component {
   componentDidMount() { }
@@ -31,8 +30,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <PersistGate persistor={persistor} onBeforeLift={() => {
-        }}>
+        <PersistGate persistor={persistor} onBeforeLift={beforeRunApp}>
           {this.props.children}
         </PersistGate>
 
