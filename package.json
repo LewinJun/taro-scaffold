@@ -15,6 +15,7 @@
     "build:tt": "taro build --type tt",
     "build:h5": "taro build --type h5",
     "build:rn": "taro build --type rn",
+    "build:rn-app": "taro build --type rn --platform ios && taro build --type rn --platform android",
     "build:qq": "taro build --type qq",
     "build:jd": "taro build --type jd",
     "build:quickapp": "taro build --type quickapp",
@@ -37,6 +38,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
+    "@react-native-community/async-storage": "^1.12.1",
     "@tarojs/components": "3.2.10",
     "@tarojs/react": "3.2.10",
     "@tarojs/rn-runner": "^3.2.10",

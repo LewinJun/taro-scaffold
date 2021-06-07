@@ -43,8 +43,12 @@ const config = {
     }
   },
   rn: {
-    outputRoot: 'rn_tmp',
-    main: './index.js'
+    output: {
+      ios: 'ios/main.jsbundle',
+      iosAssetsDest: 'ios',
+      android: 'android/index.android.bundle',
+      androidAssetsDest: 'android'
+    },
   },
   h5: {
     publicPath: '/',

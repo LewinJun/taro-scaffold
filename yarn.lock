@@ -1379,6 +1379,13 @@
   dependencies:
     deep-assign "^3.0.0"
 
+"@react-native-community/async-storage@^1.12.1":
+  version "1.12.1"
+  resolved "http://verdaccio.doctopia.com.cn/@react-native-community%2fasync-storage/-/async-storage-1.12.1.tgz#25f821b4f6b13abe005ad67e47c6f1cee9f27b24"
+  integrity sha1-JfghtPaxOr4AWtZ+R8bxzunyeyQ=
+  dependencies:
+    deep-assign "^3.0.0"
+
 "@react-native-community/bob@^0.16.2":
   version "0.16.2"
   resolved "http://verdaccio.doctopia.com.cn/@react-native-community%2fbob/-/bob-0.16.2.tgz#9102b0160e70084fa1b75403a80dec332647c950"
