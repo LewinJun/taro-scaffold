@@ -49,6 +49,7 @@ const config = {
       android: 'android/index.android.bundle',
       androidAssetsDest: 'android'
     },
+
   },
   h5: {
     publicPath: '/',
