@@ -2,6 +2,7 @@ import invariant from 'invariant'
 
 import { persistReducer } from 'redux-persist'
 import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2'
+import Taro from '@tarojs/taro'
 
 
 interface IStorage {
@@ -11,25 +12,27 @@ interface IStorage {
 }
 
 /* 
-* 不能直接使用localStorage，localStorage的getItem和setItem不是异步的，所以基于localStorage封装一层
+* Taro.getStorage 支持小程序和H5
 */
 const H5Storage: IStorage = {
   getItem: (key, args) => {
     return new Promise((resolve, reject) => {
-      resolve(localStorage.getItem(key))
+      resolve(Taro.getStorageSync(key))
     })
+
   },
   setItem: (key, args) => {
     return new Promise((resolve, reject) => {
-      const value = typeof args === 'string' ? args : JSON.stringify(args)
-      resolve(localStorage.setItem(key, value))
+      Taro.setStorageSync(
+        key,
+        args
+      )
+      resolve(Taro.getStorageSync(key))
     })
+
   },
   removeItem: (key, args) => {
-    return new Promise((resolve, reject) => {
-      localStorage.removeItem(key)
-      resolve("")
-    })
+    return Taro.removeStorage({ key })
   }
 }
 

@@ -42,6 +42,10 @@ const config = {
       }
     }
   },
+  rn: {
+    outputRoot: 'rn_tmp',
+    main: './index.js'
+  },
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
