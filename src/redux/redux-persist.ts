@@ -11,6 +11,7 @@ interface IStorage {
   removeItem(key: string, ...args: Array<any>): any;
 }
 
+
 /* 
 * Taro.getStorage 支持小程序和H5
 */
@@ -38,9 +39,7 @@ const H5Storage: IStorage = {
 
 var localCache = H5Storage
 if (process.env.TARO_ENV === 'rn') {
-  localCache = require('@react-native-community/async-storage')
-} else {
-
+  localCache = require('@react-native-community/async-storage').default
 }
 
 // reference: https://github.com/rt2zz/redux-persist#persistor-object

@@ -66,12 +66,29 @@ class Index extends Component {
           dispatch({ type: 'counter/dec', payload: 1 })
         }}>-</Button>
         <Button className='dec_btn' onClick={() => {
-          Taro.navigateTo({ url: '/pages/test/index' })
-        }}>跳转到testPage</Button>
+          if (process.env.TARO_ENV === 'weapp') {
+            wx.showModal({
+              title: '提示',
+              content: '这是一个模态弹窗只有小程序的弹框',
+              success(res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+
+            wx.navigateTo({ url: '/pages/test/index' })
+          } else {
+            Taro.navigateTo({ url: '/pages/test/index' })
+          }
+
+        }}>跳转到哈我的页面</Button>
         <Button onClick={() => {
-          RN?.NativeModules?.RNNative?.routeHandlerUrl('appscheme://user/me')
-        }}>哈哈哈</Button>
-        <View><Text>{this.props.num}</Text></View>
+          RN?.NativeModules?.RNNative?.routeHandlerUrl('zeroeconsumer://user/me')
+        }} className={"dec_btn"}>哈哈哈</Button>
+        <Text>{this.props.num}</Text>
         <View><Text>Hello, World</Text></View>
       </View>
     )

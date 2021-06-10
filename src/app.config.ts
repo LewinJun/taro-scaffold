@@ -16,7 +16,7 @@ export default {
       borderWidth: 0,
       elevation: 0,
       shadowOpacity: 1,
-      borderBottomWidth: 0
+      borderBottomWidth: 2
     }
   }
 }
